@@ -5,7 +5,7 @@ import { getTopMenu } from "../../redux/actions/topMenu";
 
 //const menu = ['Home','Women','Men','Kids','Best Seller']
 const TopMenu = (props) => {
-    console.log(props);
+    //console.log(props);
     return (
         <>
         <header className="menuHeader">

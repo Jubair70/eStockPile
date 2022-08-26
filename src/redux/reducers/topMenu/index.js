@@ -1,4 +1,9 @@
 const initialState = []
 export const topMenu = (state=initialState,action)=>{
-    return action.data || state // temporary arrangement
+    switch(action.type){
+        case "Menu":
+            return action.data
+        default:
+            return state
+    }
 }
