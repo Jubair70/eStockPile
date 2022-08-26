@@ -9,7 +9,6 @@ const Sidebar = () => {
   useEffect(() => {
     dispatch(actions.getProductCategories());
   }, []);
-  console.log("sfsf", product);
   return (
     <div>
       <div className="sidebar_category">
