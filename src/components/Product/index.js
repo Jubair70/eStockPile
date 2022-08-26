@@ -10,7 +10,6 @@ const Product = () => {
     useEffect(()=>{
         dispatch(actions.getProducts())
     },[])
-    console.log(products)
     return (
     <div className="row">
         {products.map((item, index) => (
