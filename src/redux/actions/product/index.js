@@ -64,7 +64,7 @@ export const getProductCategories = () =>async(dispatch)=>{
         method:"get",
         url: "http://localhost:5000/product/api/getCategories"
     }).then((res)=>{
-        console.log("Response" ,res.data);
+       
         let parentCat = res.data.data.filter(x=>x.parentcategoryid===null)
         parentCat.map((item)=>{
             let t = {
@@ -92,8 +92,27 @@ export const getProductCategories = () =>async(dispatch)=>{
 }
 
 export const getProducts = () =>async(dispatch)=>{
+    let productList = [];
+    await axios({
+        method:"get",
+        url: "http://localhost:5000/product/api/getProducts"
+    }).then((res)=>{
+        console.log("Response" ,res.data);
+        let parentCat = res.data.data
+        parentCat.map((item)=>{
+            let t = {
+                Id:item.id,
+                imageSrc:`http://localhost:5000/${item.productimg}`,
+                name:item.productname,
+                price:item.price
+            }
+            return productList.push(t);
+        })
+    }).catch((err)=>{
+        console.log("RESPONSE ERROR",err);
+    });
     dispatch({
         type:actionTypes.PRODUCT,
-        data:product
+        data:productList
     })
 }
