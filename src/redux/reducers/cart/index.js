@@ -11,7 +11,7 @@ export const cart = (state = initialState, action) => {
     case actionTypes.ADD_CART_ITEM:
       let item_exists = state.item.find((x) => x.Id === action.data.Id);
       if (item_exists) {
-        item_exists.quantity += 1;
+        item_exists.quantity += action.data.quantity || 1;
         item_exists.itemtotal = item_exists.price * item_exists.quantity;
         return {
           ...state,
@@ -21,7 +21,7 @@ export const cart = (state = initialState, action) => {
         };
       }
       let tmpdata = action.data;
-      tmpdata.quantity = 1;
+      tmpdata.quantity =action.data.quantity || 1;
       tmpdata.itemtotal = tmpdata.price * tmpdata.quantity;
       return {
         ...state,
