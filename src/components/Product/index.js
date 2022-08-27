@@ -14,7 +14,7 @@ import "./_product.scss";
 
 const Product = () => {
     const dispatch = useDispatch();
-    const { product: { products },cart } = useSelector((obj) => obj);
+    const { product: { products,filteredProduct },cart } = useSelector((obj) => obj);
 
     useEffect(() => {
         dispatch(actions.getProducts());
@@ -34,7 +34,7 @@ const Product = () => {
     
     return (
         <div className="row">
-            {products.map((item, index) => (
+            {filteredProduct.map((item, index) => (
                 <div className="col-lg-4 col-md-6">
                     <div className="product__item">
                         <div className="product__item__pic">

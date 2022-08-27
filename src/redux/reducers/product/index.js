@@ -1,7 +1,8 @@
 import * as actionTypes from '../../actions/product/types';
 const initialState = {
     categories:[],
-    products:[]
+    products:[],
+    filteredProduct:[]
 }
 export const product = (state=initialState,action)=>{
     switch(action.type){
@@ -14,6 +15,11 @@ export const product = (state=initialState,action)=>{
             return {
                 ...state,
                 products:action.data
+            }
+        case actionTypes.FILTER_PRODUCT:
+            return {
+                ...state,
+                filteredProduct:action.data
             }
         default:
             return state;
