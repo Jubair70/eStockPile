@@ -6,7 +6,7 @@ const LandingPage = () =>{
     return(
         <>
         <Routes > 
-            <Route exact path={"/"} element={<MainContainer/>} />
+            <Route path={"/"} element={<MainContainer/>} />
         </Routes>
        
         </>

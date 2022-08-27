@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import * as actions from "../../redux/actions";
 import { Link } from 'react-router-dom';
+import * as actions from "../../redux/actions";
+
 
 import "./_product.scss";
 
@@ -33,9 +34,11 @@ const Product = () => {
     }
 
     
+    
     return (
         <div className="row">
             {filteredProduct.map((item, index) => (
+                
                 <div className="col-lg-4 col-md-6">
                     <div className="product__item">
                         <div className="product__item__pic">
@@ -55,7 +58,8 @@ const Product = () => {
                         </div>
                         <div className="product__item__text">
                             <h6>
-                                <Link to="/productdetails">{item.name}</Link>
+                                <Link to="/productdetails"
+                                    state={item} >{item.name}</Link>
                             </h6>
                             <div className="rating">
                                 <i className="fa fa-star" />
