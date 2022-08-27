@@ -162,7 +162,7 @@ const filterData = (data,query) => {
     const filterData = data.filter(item=>{
         for(let keys in query){
             if(query[keys]===undefined) return false;
-            else if(query[keys]!==item[keys]) return false;
+            else if(!query[keys].includes(item[keys])) return false;
         }
         return true;
     });
