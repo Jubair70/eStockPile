@@ -115,3 +115,20 @@ display: block;
   right: 30px;
   top: -1px;
 }
+.btn-sidebar{
+  font-size: 14px;
+  width:100%;
+  color:#000;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 5px;
+  bottom: 2px;
+  margin:2px;
+  border:2px solid red;
+  position: relative;
+  background-color: #fff;
+  &:hover{
+    background-color: red;
+    color:#fff;
+  }
+}

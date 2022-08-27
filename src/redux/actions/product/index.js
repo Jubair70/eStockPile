@@ -158,10 +158,16 @@ const buildQuery = (filter) => {
 
 const filterData = (data,query) => {
     
-    console.log("item ",data)
+    const keysHavingMinMax = ['price'];
     const filterData = data.filter(item=>{
         for(let keys in query){
             if(query[keys]===undefined) return false;
+            else if(keysHavingMinMax.includes(keys)){
+              if(query[keys]['min'] !== null && item[keys]<query[keys]['min'])
+                return false;
+                if(query[keys]['max'] !== null && item[keys]>query[keys]['max'])
+                return false;
+            }
             else if(!query[keys].includes(item[keys])) return false;
         }
         return true;
