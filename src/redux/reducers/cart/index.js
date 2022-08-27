@@ -34,6 +34,16 @@ export const cart = (state = initialState, action) => {
           state.item.reduce((a, b) => a + b.quantity || 0, 0) +
           tmpdata.quantity,
       };
+    case actionTypes.REMOVE_CART_ITEM:
+          let tmpItem = state.item;
+          tmpItem = tmpItem.filter(x=>x.Id!==action.data.Id);
+          return {
+            ...state,
+            item:[...tmpItem],
+            itemPriceTotal:tmpItem.reduce((a, b) => a + b.itemtotal || 0, 0),
+            totalItems:tmpItem.length,
+            totalQuantity: tmpItem.reduce((a, b) => a + b.quantity || 0, 0) ,
+          }
     default:
       return state;
   }

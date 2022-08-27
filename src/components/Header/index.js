@@ -1,7 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import TopMenu from "../TopMenu";
+import { Link } from "react-router-dom";
 import "./_header.scss";
+
 const Header = () => {
   const { cart } = useSelector((obj) => obj);
   return (
@@ -45,10 +47,12 @@ const Header = () => {
                     <i className="fa fa-heart"></i>
                   </li>
                   <li>
+                    <Link to={'/viewcart'}>
                     <i className="fa fa-shopping-cart">
                       {cart.item.length >0 &&
                       <div className="tip">{cart.item.length}</div>}
                     </i>
+                    </Link>
                   </li>
                 </ul>
               </div>

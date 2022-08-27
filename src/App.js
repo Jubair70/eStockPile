@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import LandingPage from './components';
 import ProductDetails from './components/Product/productDetails';
+import Cart from './components/Cart';
 
 
 function App() {
@@ -12,8 +13,9 @@ function App() {
     <Header/>
     <section>
     <Routes > 
-      <Route exact path={"/"} element={<LandingPage/>} />
-      <Route exact path={"/productdetails"} element={<ProductDetails/>} />
+      <Route  path={"/"} element={<LandingPage/>} />
+      <Route  path={"/productdetails"} element={<ProductDetails/>} />
+      <Route  path={"/viewcart"} element={<Cart/>} />
     </Routes>
     
     </section>
